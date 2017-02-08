@@ -1,0 +1,26 @@
+{
+  "name": "960.scss",
+  "version": "1.0.0",
+  "description": "The 960 Grid System is an effort to streamline web development workflow. SCSS version",
+  "main": "gulpfile.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alessandrotecnoprax/960.scss.git"
+  },
+  "author": "Alessandro A. (alessandro@tecnoprax.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alessandrotecnoprax/960.scss/issues"
+  },
+  "homepage": "https://github.com/alessandrotecnoprax/960.scss#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^3.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-scss": "^1.4.0",
+    "gulp-sourcemaps": "^2.4.1"
+  }
+}

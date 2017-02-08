@@ -1,0 +1,101 @@
+body {
+	min-width: #{$width}px;
+}
+
+@for $i from 1 through $columns {
+	.grid_#{$i} {
+		display: inline;
+		float: left;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+@for $i from 1 through $columns - 1 {
+	.push_#{$i}, .pull_#{$i} {
+		position: relative;
+	}
+}
+
+.alpha { margin-left: 0; }
+.omega { margin-right: 0; }
+
+.container {
+	margin: {
+		left: auto;
+		right: auto;
+	}
+
+	width: #{$width}px;
+
+	@for $i from 1 through $columns {
+		.grid_#{$i} {
+			width: #{($column_width * $i) + (($i - 1) * ($margin * 2))}px;
+		}
+	}
+
+	@for $i from 1 through $columns - 1 {
+		.prefix_#{$i} {
+			padding-left: #{($column_width * $i) + ($i * ($margin * 2))}px
+		}
+
+		.suffix_#{$i} {
+			padding-right: #{($column_width * $i) + ($i * ($margin * 2))}px
+		}
+
+		.push_#{$i} {
+			left: #{($column_width * $i) + ($i * ($margin * 2))}px
+		}
+
+		.pull_#{$i} {
+			left: -#{($column_width * $i) + ($i * ($margin * 2))}px
+		}
+	}
+
+	&:before { 
+		@extend .clearfix:before;
+	}
+
+	&:after {
+		@extend .clearfix:after;
+	}
+}
+
+/* http://sonspring.com/journal/clearing-floats */
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+.clearfix {
+	&:before, &:after {
+		content: '.';
+		display: block;
+		overflow: hidden;
+		visibility: hidden;
+		font-size: 0;
+		line-height: 0;
+		width: 0;
+		height: 0;
+
+	};
+
+	&:after {
+		clear: both;
+	}
+}
+
+/*
+The following zoom:1 rule is specifically for IE6 + IE7.
+Move to separate stylesheet if invalid CSS is a problem.
+ */
+
+.clearfix,
+.container {
+	zoom: 1;
+}
